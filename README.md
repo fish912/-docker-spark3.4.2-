@@ -27,7 +27,7 @@ docker build -t sparkenv:3.4.2 .
 `docker-compose up -d`
 
 hadoop web ui: http://127.0.0.1:8088/cluster/cluster  
-spark web ui: http://127.0.0.1:8081/
+spark web ui: http://127.0.0.1:8081/  
 spark history web: http://127.0.0.1:18080/
 
 ***所有内容仅供学习使用，其他用途概不负责***
