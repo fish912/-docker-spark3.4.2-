@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de342bd5-03b3-4547-be40-15c07f364874" name="Changes" comment="Update README.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="de342bd5-03b3-4547-be40-15c07f364874" name="Changes" comment="Update README.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1710225652803</updated>
       <workItem from="1710225654839" duration="1152000" />
-      <workItem from="1710226903133" duration="950000" />
+      <workItem from="1710226903133" duration="1600000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -97,7 +94,31 @@
       <option name="project" value="LOCAL" />
       <updated>1710226936460</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1710228023608</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710228023608</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1710228039051</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1710228039051</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1710228482527</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710228482527</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

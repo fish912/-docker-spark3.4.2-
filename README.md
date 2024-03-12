@@ -9,7 +9,7 @@
 # 依赖镜像ubuntu:22.04
 docker pull ubuntu:22.04
 
-# 下载需要的服务及版本
+# 下载需要的服务及版本（官网均提供下载，这里整合到了release，需要的自行下载）
 1. spark-3.4.2-bin-hadoop3-scala2.13.tgz
 2. scala-2.13.1.tgz
 3. Python-3.10.12.tgz
