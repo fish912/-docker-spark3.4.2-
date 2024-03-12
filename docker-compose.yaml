@@ -1,0 +1,105 @@
+version: "3"
+networks:
+  myNetwork:
+    driver: bridge
+services:
+  znr1:
+    image: 'sparkenv:3.4.2'
+    restart: always
+    networks:
+      - myNetwork
+    container_name: znr1
+    environment:
+      HADOOP_NAMENODE_MAIN_NODE: true
+      ZOOKEEPER_SERVER: znr1:2888:3888,znr2:2888:3888,znr3:2888:3888
+      # hadoop namenode数量，namenode必须有该环境变量
+      HADOOP_NAMENODE_NUM: 3
+      HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
+      HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3
+    ports:
+      - "2181:2181"  # zookeeper
+      - "8020:8020"  # hdfs  dfs.nameNode.rpc-address
+      - "8088:8088" # Hadoop web url
+      - "8081:8081"  # spark web url
+      - "18080:18080"  # spark history server
+  znr2:
+    image: 'sparkenv:3.4.2'
+    restart: always
+    networks:
+      - myNetwork
+    container_name: znr2
+    environment:
+      ZOOKEEPER_SERVER: znr1:2888:3888,znr2:2888:3888,znr3:2888:3888
+      # hadoop namenode数量，namenode必须有该环境变量
+      HADOOP_NAMENODE_NUM: 3
+      HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
+      HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3
+    ports:
+      - "2182:2181"
+      - "8021:8020"
+      - "8188:8088"
+      - "8034:8033"
+      - "8181:8081"
+  znr3:
+    image: 'sparkenv:3.4.2'
+    restart: always
+    networks:
+      - myNetwork
+    container_name: znr3
+    environment:
+      ZOOKEEPER_SERVER: znr1:2888:3888,znr2:2888:3888,znr3:2888:3888
+      # hadoop namenode数量，namenode必须有该环境变量
+      HADOOP_NAMENODE_NUM: 3
+      HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
+      HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3
+    ports:
+      - "2183:2181"
+      - "8022:8020"
+      - "8288:8088"
+      - "8035:8033"
+      - "8281:8081"
+  datanode1:
+    image: 'sparkenv:3.4.2'
+    restart: always
+    depends_on:
+      - znr1
+      - znr2
+      - znr3
+    networks:
+      - myNetwork
+    container_name: datanode1
+    environment:
+      # hadoop datanode数量，datanode必须有该环境变量
+      HADOOP_DATANODE_NUM: 3
+      HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
+      HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3
+  datanode2:
+    image: 'sparkenv:3.4.2'
+    restart: always
+    depends_on:
+      - znr1
+      - znr2
+      - znr3
+    networks:
+      - myNetwork
+    container_name: datanode2
+    environment:
+      # hadoop datanode数量，datanode必须有该环境变量
+      HADOOP_DATANODE_NUM: 3
+      HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
+      HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3
+  datanode3:
+    image: 'sparkenv:3.4.2'
+    restart: always
+    depends_on:
+      - znr1
+      - znr2
+      - znr3
+    networks:
+      - myNetwork
+    container_name: datanode3
+    environment:
+      # hadoop datanode数量，datanode必须有该环境变量
+      HADOOP_DATANODE_NUM: 3
+      HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
+      HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3

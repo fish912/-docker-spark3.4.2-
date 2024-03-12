@@ -1,0 +1,7 @@
+      HADOOP_DFS_NAMENODE_NAME_DIR: /opt/hadoop/hdfs/namenode
+      HADOOP_DFS_JOURNALNODE_EDITS_DIR: /opt/hadoop/hdfs/journalnode
+      HADOOP_DFS_DATANODE_DATA_DIR: /opt/hadoop/hdfs/datanode
+      HADOOP_DFS_NAMENODE_HANDLER_COUNT: 50
+      ZOO_DATA_DIR: /opt/zookeeper
+      HADOOP_HEAPSIZE_MAX: 512
+      YARN_DIR: /opt/hadoop/yarn
