@@ -3,6 +3,19 @@
 
 ***
 
+### 目录说明  
+```
+hadoop                          # hadoop配置文件参考
+zookeeper                       # zookeeper配置文件参考
+spark                           # spark配置文件参考
+script                          # 构建和运行时执行的脚本
+docker-compose.yaml             # yaml文件
+Dockerfile                      # 构建docker镜像的文件
+ENV                             # 可调整的环境变量，不局限于此
+```
+
+***
+
 # 构建镜像
 
 ```
