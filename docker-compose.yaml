@@ -19,8 +19,10 @@ services:
     ports:
       - "2181:2181"  # zookeeper
       - "8020:8020"  # hdfs  dfs.nameNode.rpc-address
+      - "50070:50070"  # hdfs  dfs.nameNode.http-address
       - "8088:8088" # Hadoop web url
       - "8081:8081"  # spark web url
+      - "7077:7077"  # spark master service
       - "18080:18080"  # spark history server
   znr2:
     image: 'sparkenv:3.4.2'
@@ -37,8 +39,10 @@ services:
     ports:
       - "2182:2181"
       - "8021:8020"
+      - "50170:50070"
       - "8188:8088"
       - "8034:8033"
+      - "7177:7077"
       - "8181:8081"
   znr3:
     image: 'sparkenv:3.4.2'
@@ -55,8 +59,10 @@ services:
     ports:
       - "2183:2181"
       - "8022:8020"
+      - "50270:50070"
       - "8288:8088"
       - "8035:8033"
+      - "7277:7077"
       - "8281:8081"
   datanode1:
     image: 'sparkenv:3.4.2'
@@ -73,6 +79,7 @@ services:
       HADOOP_DATANODE_NUM: 3
       HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
       HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3
+      HA_ZOOKEEPER_SERVER: znr1:2181,znr2:2181,znr3:2181
   datanode2:
     image: 'sparkenv:3.4.2'
     restart: always
@@ -88,6 +95,7 @@ services:
       HADOOP_DATANODE_NUM: 3
       HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
       HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3
+      HA_ZOOKEEPER_SERVER: znr1:2181,znr2:2181,znr3:2181
   datanode3:
     image: 'sparkenv:3.4.2'
     restart: always
@@ -103,3 +111,4 @@ services:
       HADOOP_DATANODE_NUM: 3
       HADOOP_DFS_NAMENODE_SERVER_ADDRESS: znr1,znr2,znr3
       HADOOP_DFS_DATANODE_ADDRESS: datanode1,datanode2,datanode3
+      HA_ZOOKEEPER_SERVER: znr1:2181,znr2:2181,znr3:2181

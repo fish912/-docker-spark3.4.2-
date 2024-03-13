@@ -147,7 +147,7 @@ if [ -n "$HADOOP_DATANODE_NUM" ]; then
       echo "HADOOP_DFS_DATANODE_ADDRESS environment variable is not set."
       exit 1
     fi
-    createConf "$(echo "$ZOOKEEPER_SERVER" | sed 's/:2888:3888/:2181/g')"
+    createConf "$HA_ZOOKEEPER_SERVER"
   fi
   hdfs --daemon start datanode
   yarn --daemon start nodemanager
